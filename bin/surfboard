@@ -1,0 +1,94 @@
+#!/usr/bin/env python
+"""The surfboard executable..."""
+
+import argparse
+import os
+import yaml
+
+import numpy as np
+
+from surfboard.sound import Waveform
+from surfboard.utils import YamlFileException
+from surfboard.feature_extraction_multiprocessing import (
+    extract_features_from_paths,
+)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description='Surfboard CLI.'
+    )
+    parser.add_argument('functionality', type=str,
+                        help='The functionality to be run. Currently include: compute-features, compute-components')
+    parser.add_argument('-i', '--input_wav_dir', type=str, metavar='i',
+                        help='A folder with .wav files')
+    parser.add_argument('-o', '--output_file', type=str, metavar='o',
+                        help='A file to output the computed features (or components)')
+    parser.add_argument('-F', '--feature_set', type=str, metavar='F',
+                        help='A .yaml file specifying which components/statistics to compute.')
+    parser.add_argument('-s', '--fs', type=int, metavar='s', default=44100,
+                        help='The sample rate to load the waveforms.')
+    parser.add_argument('-j', '--num_proc', type=int, metavar='j', default=1,
+                        help='The number of parallel processes to run.')
+
+    # Parse the args.
+    args = parser.parse_args()
+    if args.functionality == 'compute-features':
+        assert args.input_wav_dir is not None, 'You must set the --input_wav_dir argument'
+        assert args.output_file is not None, 'You must set the --output_file argument'
+        assert args.feature_set is not None, 'You must set the --feature_set argument'
+
+        try:
+            config = yaml.full_load(open(args.feature_set, 'r'))
+        except Exception as e:
+            raise YamlFileException(
+                ".yaml loading failed. Please check example_configs directory for example .yaml configs"
+            )
+
+        assert 'components' in config, 'You must have a components section in the .yaml file.'
+        assert 'statistics' in config, 'You must have a statistics section in the .yaml file.'
+
+        # Turn into lists to be digestable by Waveform and Barrel classes.
+        components_list = list(config['components'])
+        statistics_list = list(config['statistics'])
+
+        files_list = os.listdir(args.input_wav_dir)
+        paths = [os.path.join(args.input_wav_dir, file) for file in files_list]
+        
+        # Save to csv. Load this with pd.read_csv.
+        output_dataframe = extract_features_from_paths(
+            paths=paths, components_list=components_list, statistics_list=statistics_list,
+            sample_rate=args.fs, num_proc=args.num_proc,
+        )
+        output_dataframe["fnames"] = files_list
+        output_dataframe.to_csv(args.output_file, index=False)
+
+    elif args.functionality == 'compute-components':
+        assert args.input_wav_dir is not None, 'You must set the --input_wav_dir argument'
+        assert args.output_file is not None, 'You must set the --output_file argument'
+        assert args.feature_set is not None, 'You must set the --feature_set argument'
+        try:
+            config = yaml.full_load(open(args.feature_set, 'r'))
+        except Exception as e:
+            raise YamlFileException(
+                ".yaml loading failed. Please check example_configs directory for example .yaml configs"
+            )
+
+        assert 'components' in config, 'You must have a components section in the .yaml file.'
+        assert 'statistics' not in config, 'You cannot have a statistics section for the compute-components functionality.'
+        # Turn into lists to be digestable by Waveform and Barrel classes.
+        components_list = list(config['components'])
+
+        files_list = os.listdir(args.input_wav_dir)
+        paths = [os.path.join(args.input_wav_dir, file) for file in files_list]
+        
+        # Save to pickle. Load this with pd.read_pickle.
+        output_dataframe = extract_features_from_paths(
+            paths=paths, components_list=components_list, statistics_list=None,
+            sample_rate=args.fs, num_proc=args.num_proc,
+        )
+        output_dataframe["fnames"] = files_list
+        output_dataframe.to_pickle(args.output_file, index=False)
+
+
+    else:
+        print('This functionality is not yet supported. Use one of: compute-features, compute-components')

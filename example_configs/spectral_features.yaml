@@ -1,0 +1,21 @@
+components:
+  - spectral_slope:
+      n_fft_seconds: 0.04
+      hop_length_seconds: 0.01
+  - spectral_flux
+  - spectral_entropy
+  - spectral_centroid
+  - spectral_spread
+  - spectral_skewness
+  - spectral_kurtosis
+  - spectral_flatness
+  - spectral_rolloff
+
+statistics:
+  - mean
+  - std
+  - first_derivative_mean
+  - first_derivative_std
+  - second_derivative_mean
+  - second_derivative_std
+  

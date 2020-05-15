@@ -1,0 +1,37 @@
+# These components have been demonstrated in the literature to be predictive of Parkinson's disease. See e.g. Tsanas et al. 2011 (https://www.ncbi.nlm.nih.gov/pubmed/21084338).
+
+components:
+  - f0_contour
+  - mfcc
+  - jitters
+  - shimmers
+  - dfa
+  - HNR
+  - ppe
+
+statistics:
+  - mean
+  - std
+  - skewness
+  - kurtosis
+  - first_derivative_mean
+  - first_derivative_std
+  - first_derivative_skewness
+  - first_derivative_kurtosis
+  - second_derivative_mean
+  - second_derivative_std
+  - second_derivative_skewness
+  - second_derivative_kurtosis
+  - first_quartile
+  - second_quartile
+  - third_quartile
+  - q2_q1_range
+  - q3_q2_range
+  - q3_q1_range
+  - percentile_1
+  - percentile_99
+  - percentile_1_99_range
+  - linear_regression_offset
+  - linear_regression_slope
+  - linear_regression_mse
+  
