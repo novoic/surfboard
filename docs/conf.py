@@ -12,6 +12,8 @@
 #
 import os
 import sys
+from unittest.mock import MagicMock
+
 sys.path.insert(0, os.path.abspath('.'))
 
 # Mock module to bypass pip install
