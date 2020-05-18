@@ -23,7 +23,7 @@ class Mock(MagicMock):
         return MagicMock()
 
 MOCK_MODULES = [
-    'librosa', 'librosa.display'
+    'librosa', 'librosa.display', 'librosa.core',
 ]
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 
