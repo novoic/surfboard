@@ -1,6 +1,9 @@
 <p align="center">
-<a href="https://novoic.com"><img src="https://assets.novoic.com/surfboard.png" alt="surfboard-logo" border="0"></a>
-
+<a href="https://novoic.com">
+    <img src="https://assets.novoic.com/surfboard.png" alt="surfboard-logo" border="0">
+</a>
+  <br />
+  <br />
 <a href='https://surfboard.readthedocs.io/en/latest/?badge=latest'>
     <img src='https://readthedocs.org/projects/surfboard/badge/?version=latest' alt='Documentation Status' />
 </a>
