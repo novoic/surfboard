@@ -1,9 +1,11 @@
 python:
    version: 3.7
    install:
+      - requirements: .requirements.txt
       - method: pip
         path: .
         extra_requirements:
-           - docs
+            - docs
       - method: setuptools
-        path: package
+        path: another/package
+   system_packages: true
