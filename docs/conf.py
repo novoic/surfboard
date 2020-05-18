@@ -28,6 +28,9 @@ MOCK_MODULES = [
 sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 master_doc = 'index'
 
+# Needed to not sort alphabetically.
+autodoc_member_order = 'bysource'
+
 
 # -- Project information -----------------------------------------------------
 

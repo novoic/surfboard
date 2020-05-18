@@ -6,12 +6,8 @@ Surfboard: audio-feature extraction for modern machine learning
 .. toctree::
     :maxdepth: 2
 
-    introduction
+    intro_installation
 
-.. toctree::
-    :maxdepth: 2
-
-    installation
 
 Core Surfboard classes: Waveform and Barrel
 -------------------------------------------
@@ -19,12 +15,8 @@ Core Surfboard classes: Waveform and Barrel
 .. toctree::
     :maxdepth: 2
 
-    waveform
+    waveform_barrel
 
-.. toctree::
-    :maxdepth: 2
-
-    barrel
 
 Feature Extraction
 ------------------
