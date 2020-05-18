@@ -491,9 +491,9 @@ class Waveform:
         and self.get_zcr_sequence.
 
         Returns:
-            dictionary: Keys "num_zerocrossings" and "rate" mapping to:
-                zerocrossing["num_zerocrossings"]: number of zero crossings in self.waveform
-                zerocrossing["rate"]: number of zero crossings divided by number of samples.
+            dictionary: Keys "num_zerocrossings" and "rate" mapping to: zerocrossing["num_zerocrossings"]:
+            number of zero crossings in self.waveform zerocrossing["rate"]: number of zero crossings 
+            divided by number of samples.
         """
         num_zerocrossings = librosa.core.zero_crossings(self.waveform).sum()
         rate = num_zerocrossings / self.waveform.shape[0]
@@ -588,7 +588,7 @@ class Waveform:
 
         Returns:
             np.array, [1, t1]: F0 contour of self.waveform. Contains unvoiced
-                    frames.
+                frames.
         """
         return get_f0(
             self.waveform, self.sample_rate, hop_length_seconds=hop_length_seconds, method=method,
@@ -608,8 +608,7 @@ class Waveform:
                 calculation. See https://github.com/r9y9/pysptk
 
         Returns:
-            dict: Dictionary mapping:
-                "mean": f0 mean of self.waveform.
+            dict: Dictionary mapping: "mean": f0 mean of self.waveform. 
                 "std": f0 standard deviation of self.waveform.
         """
         f0_dict = get_f0(
@@ -652,9 +651,8 @@ class Waveform:
             max_p_factor (float): value to use for the period factor principle
 
         Returns:
-            dict: dictionary mapping strings to floats, with keys
-                "localJitter", "localabsoluteJitter", "rapJitter", "ppq5Jitter",
-                "ddpJitter"
+            dict: dictionary mapping strings to floats, with keys "localJitter",
+            "localabsoluteJitter", "rapJitter", "ppq5Jitter", "ddpJitter"
         """
         jitters_dict = jitters.get_jitters(
             self.f0_contour()[0], p_floor=p_floor,
@@ -674,9 +672,8 @@ class Waveform:
             max_p_factor (float): value to use for the period factor principle
 
         Returns:
-            dict: Cictionary mapping strings to floats, with keys
-                "localShimmer", "localdbShimmer", "apq3Shimmer", "apq5Shimmer",
-                "apq11Shimmer"
+            dict: Dictionary mapping strings to floats, with keys "localShimmer",
+                "localdbShimmer", "apq3Shimmer", "apq5Shimmer", "apq11Shimmer"
         """
         shimmers_dict = shimmers.get_shimmers(
             self.waveform, self.sample_rate, self.f0_contour()[0], max_a_factor=max_a_factor,
@@ -736,7 +733,7 @@ class Waveform:
 
         Returns:
             dict or np.array, [order, ]: Dictionary mapping 'LPC_{i}' to the
-            i'th lpc coefficient, for i = 0...order. Or LSP frequencies (np array case).
+                i'th lpc coefficient, for i = 0...order. Or LSP frequencies (np array case).
         """
         lpc_poly = self.lpc(order, return_np_array=True)
         lsfs = np.array(lpc_to_lsf(lpc_poly))
@@ -749,7 +746,7 @@ class Waveform:
 
         Returns:
             dict: Dictionary mapping {'f1', 'f2', 'f3', 'f4'} to
-                corresponding {first, second, third, fourth} formant frequency.
+            corresponding {first, second, third, fourth} formant frequency.
         """
         formants_dict = formants.get_formants(self.waveform, self.sample_rate)
         return formants_dict
@@ -764,9 +761,9 @@ class Waveform:
                 in seconds.
 
         Returns:
-            np.array, [4, T / hop_length]: Time series of the first four
-                formant frequencies computed on windows of length frame_length_seconds,
-                with sliding window of hop_length_seconds.
+            np.array, [4, T / hop_length]: Time series of the first four formant frequencies
+                computed on windows of length frame_length_seconds, with sliding window of
+                hop_length_seconds.
         """
         try:
             formants_nparray = np.concatenate([

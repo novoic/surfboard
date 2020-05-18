@@ -30,8 +30,8 @@ class Barrel:
         return self.component
 
     def compute_statistics(self, statistic_list):
-        """Compute statistics on self.component using a list of strings which identify which
-         statistics to compute.
+        """Compute statistics on self.component using a list of strings which identify
+        which statistics to compute.
 
         Args:
             statistic_list (list of str): list of strings representing Barrel methods to
@@ -220,8 +220,8 @@ class Barrel:
         """Compute the first quartile on the last dimension (time).
 
         Returns:
-            np.array, [n_feats, ]: The first quartile of each individual
-                dimension in self.component
+            np.array, [n_feats, ]: The first quartile of each individual dimension
+                in self.component
         """
         return np.quantile(self.component, 0.25, axis=-1)
 

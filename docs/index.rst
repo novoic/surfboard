@@ -1,17 +1,42 @@
-Welcome to Surfboard's documentation!
-=====================================
+:github_url: https://github.com/novoic/surfboard
+
+Surfboard: audio-feature extraction for modern machine learning
+===============================================================
+
+.. toctree::
+    :maxdepth: 2
+
+    introduction
+
+Installation
+------------
+ 
+.. toctree::
+    :maxdepth: 2
+
+    installation
+
+
+Waveform and Barrel classes
+---------------------------
 
 .. automodule:: surfboard.sound
-    :members:
 
 .. automodule:: surfboard.statistics
-    :members:
+
+
+Feature Extraction
+------------------
 
 .. automodule:: surfboard.feature_extraction
     :members:
 
 .. automodule:: surfboard.feature_extraction_multiprocessing
     :members:
+
+
+Under the Hood
+--------------
 
 .. automodule:: surfboard.hnr
     :members:
