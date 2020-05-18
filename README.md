@@ -1,8 +1,13 @@
 <p align="center">
 <a href="https://novoic.com"><img src="https://assets.novoic.com/surfboard.png" alt="surfboard-logo" border="0"></a>
-</p>
 
-[![CircleCI](https://circleci.com/gh/novoic/surfboard.svg?style=shield&circle-token=a1b00a7def3a0a97090888e7380b771f58836046)](https://app.circleci.com/pipelines/github/novoic/surfboard) 
+<a href='https://surfboard.readthedocs.io/en/latest/?badge=latest'>
+    <img src='https://readthedocs.org/projects/surfboard/badge/?version=latest' alt='Documentation Status' />
+</a>
+<a href='https://app.circleci.com/pipelines/github/novoic/surfboard'>
+    <img src='https://circleci.com/gh/novoic/surfboard.svg?style=shield&circle-token=a1b00a7def3a0a97090888e7380b771f58836046' alt='Build Status' />
+</a>
+</p>
 
 _A Python package for modern audio feature extraction_
 

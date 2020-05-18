@@ -20,49 +20,27 @@ Installation
 Waveform and Barrel classes
 ---------------------------
 
-.. automodule:: surfboard.sound
+.. toctree::
+    :maxdepth: 2
 
-.. automodule:: surfboard.statistics
-
+    waveform_barrel
 
 Feature Extraction
 ------------------
 
-.. automodule:: surfboard.feature_extraction
-    :members:
+.. toctree::
+    :maxdepth: 2
 
-.. automodule:: surfboard.feature_extraction_multiprocessing
-    :members:
+    feature_extraction
 
 
 Under the Hood
 --------------
 
-.. automodule:: surfboard.hnr
-    :members:
-
-.. automodule:: surfboard.jitters
-    :members:
-
-.. automodule:: surfboard.shimmers
-    :members:
-
-.. automodule:: surfboard.dfa
-    :members:
-
-.. automodule:: surfboard.spectrum
-    :members:
-
-.. automodule:: surfboard.misc_components
-    :members:
-
-.. automodule:: surfboard.utils
-    :members:
-
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+    :maxdepth: 2
 
+    under_the_hood
 
 
 Indices and tables
