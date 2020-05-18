@@ -17,13 +17,21 @@ Installation
     installation
 
 
-Waveform and Barrel classes
----------------------------
+Waveform class
+--------------
 
 .. toctree::
     :maxdepth: 2
 
-    waveform_barrel
+    waveform
+
+Barrel class
+--------------
+
+.. toctree::
+    :maxdepth: 2
+
+    barrel
 
 Feature Extraction
 ------------------
