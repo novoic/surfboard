@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.6
+    steps:
+      - checkout
+      - run: sudo apt-get install libsndfile1-dev
+      - run: pip3 install .
+      - run: pytest .
