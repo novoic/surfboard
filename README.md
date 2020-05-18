@@ -6,6 +6,7 @@
 
 _A Python package for modern audio feature extraction_
 
+For information about contributing, citing, licensing (including commercial licensing) and getting in touch, please see [our wiki](https://github.com/novoic/surfboard/wiki).
 
 ## :surfer: Installation :surfer:
 
@@ -136,4 +137,4 @@ Some very rudimentary tests have been implemented in the `tests` directory, to m
 
 ## License
 
-Surfboard has a GPL v3.0 license. See `LICENSE` for more details.
+Surfboard is released under dual commercial and open source licenses. This is the open-source (GPL v3.0) version. See `LICENSE` for more details.
