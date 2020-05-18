@@ -8,9 +8,10 @@ Surfboard: audio-feature extraction for modern machine learning
 
     intro_installation
 
-
 Core Surfboard classes: Waveform and Barrel
 -------------------------------------------
+
+At the heart of Surfboard lie two classes: the :code:`Waveform` class and the :code:`Barrel` class.
 
 .. toctree::
     :maxdepth: 2
@@ -18,8 +19,10 @@ Core Surfboard classes: Waveform and Barrel
     waveform_barrel
 
 
-Feature Extraction
+Feature extraction
 ------------------
+
+An alternative to extracting features with the :code:`Waveform` class is to use functions specifically written for that purpose, either with the vanilla approach, or with the multiprocessing approach.
 
 .. toctree::
     :maxdepth: 2
@@ -27,8 +30,10 @@ Feature Extraction
     feature_extraction
 
 
-Under the Hood
+Under the hood
 --------------
+
+Under the hood lies a variety of files containing functions which are imported by the :code:`Waveform` class. We split the code as such for the sake of readability.
 
 .. toctree::
     :maxdepth: 2
