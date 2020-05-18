@@ -1,14 +1,12 @@
 Feature Extraction
 ==================
 
-Vanilla feature extraction
---------------------------
+.. toctree::
+    :maxdepth: 2
 
-.. automodule:: surfboard.feature_extraction
-    :members:
+    vanilla_feat.rst
 
-Feature extraction with multiprocessing
----------------------------------------
+.. toctree::
+    :maxdepth: 2
 
-.. automodule:: surfboard.feature_extraction_multiprocessing
-    :members:
+    multiproc_feat.rst
