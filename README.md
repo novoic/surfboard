@@ -16,7 +16,7 @@ _A Python package for modern audio feature extraction_
 
 For information about contributing, citing, licensing (including commercial licensing) and getting in touch, please see [our wiki](https://github.com/novoic/surfboard/wiki).
 
-Our documentation can be found [here](https://surfboard.readthedocs.io/en/latest).
+Our documentation can be found [here](https://surfboard.readthedocs.io/en/latest). Our paper can be found [here](https://arxiv.org/abs/2005.08848).
 
 ## :surfer: Installation :surfer:
 

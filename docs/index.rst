@@ -3,6 +3,9 @@
 Surfboard: audio-feature extraction for modern machine learning
 ===============================================================
 
+You can find our paper `on arXiv
+<https://arxiv.org/abs/2005.08848>`_.
+
 .. toctree::
     :maxdepth: 2
 
