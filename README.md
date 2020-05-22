@@ -20,7 +20,8 @@ Our documentation can be found [here](https://surfboard.readthedocs.io/en/latest
 
 ## :surfer: Installation :surfer:
 
-* Install [from PyPi](https://pypi.org/project/surfboard/): `pip install surfboard`
+* Install [from PyPi](https://pypi.org/project/surfboard/)
+```pip install surfboard```
 
 Alternatively,
 * Clone the repo: `git clone https://github.com/novoic/surfboard.git`
