@@ -1,7 +1,13 @@
 Installing Surfboard
 ====================
 
-Installing Surfboard is as easy as boogie boarding!
+Installing Surfboard is as easy as boogie boarding! You can install it from PyPi:
+
+.. code::
+
+    pip install surfboard
+
+Alternatively, you can clone it and install it as such:
 
 .. code::
 
