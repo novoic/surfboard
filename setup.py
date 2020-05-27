@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="surfboard",
-    version="0.1",
+    version="0.1.1",
     description="Novoic's audio feature extraction library https://novoic.com",
     url="http://github.com/novoic/surfboard",
     author="Raphael Lenain",
