@@ -87,7 +87,7 @@ if __name__ == '__main__':
             sample_rate=args.fs, num_proc=args.num_proc,
         )
         output_dataframe["fnames"] = files_list
-        output_dataframe.to_pickle(args.output_file, index=False)
+        output_dataframe.to_pickle(args.output_file)
 
 
     else:
