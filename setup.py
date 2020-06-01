@@ -21,7 +21,7 @@ setup(
         "alzheimers-disease",
         "parkinsons-disease",
     ],
-    download_url="https://github.com/novoic/surfboard/archive/v0.1.tar.gz",
+    download_url="https://github.com/novoic/surfboard/archive/v0.1.1.tar.gz",
     install_requires=[
         "librosa==0.7.2",
         "pysptk==0.1.18",
