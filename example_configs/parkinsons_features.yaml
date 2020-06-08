@@ -2,12 +2,18 @@
 
 components:
   - f0_contour
+  - f0_statistics
+  - log_energy
+  - log_energy_slidingwindow
+  - formants
+  - loudness
+  - rms
   - mfcc
   - jitters
   - shimmers
-  - dfa
-  - HNR
+  - hnr
   - ppe
+  - dfa
 
 statistics:
   - mean
