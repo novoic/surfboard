@@ -31,7 +31,7 @@ Crest factor | Ours | `crest_factor` | `frame_length_seconds=0.04`, `hop_length_
 Pitch period entropy | Ours | `ppe` | None
 Jitters | Ours | `jitters` | `p_floor=0.0001`, `p_ceil=0.02`, `max_p_factor=1.3`
 Shimmers | Ours | `shimmers` | `max_a_factor=1.6`, `p_floor=0.0001`, `p_ceil=0.02`, `max_p_factor=1.3`
-Harmonics-to-noise ratio | Ours | `HNR` | None
+Harmonics-to-noise ratio | Ours | `hnr` | None
 Detrended fluctuation analysis | Ours | `dfa` | `window_lengths=[64, 128, 256, 512, 1024, 2048, 4096]`
 Linear spectral coefficients | LibROSA | `lpc` | `order=4`, `return_np_array=False`
 Linear spectral frequencies | pyspectrum | `lsf` | `order=4`, `return_np_array=False`
