@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="surfboard",
-    version="0.1.1",
+    version="0.2.0",
     description="Novoic's audio feature extraction library https://novoic.com",
     url="http://github.com/novoic/surfboard",
     author="Raphael Lenain",
@@ -21,7 +21,7 @@ setup(
         "alzheimers-disease",
         "parkinsons-disease",
     ],
-    download_url="https://github.com/novoic/surfboard/archive/v0.1.1.tar.gz",
+    download_url="https://github.com/novoic/surfboard/archive/v0.2.0.tar.gz",
     install_requires=[
         "librosa>=0.7.2",
         "numba==0.48.0", # Needed until Librosa deploys fix to mute warnings.
