@@ -8,6 +8,25 @@ from scipy.stats import (
 import numpy as np
 
 
+def check_component_for_derivative(component, derivative_no):
+    """This function checks the component dimensions to ensure
+    that the corresponding derivative number (first, second, etc)
+    can be calculated. It fails when there are less than derivative_no
+    elements across time.
+
+        Args:
+            component (np.array, [n_feats, T]): component
+            derivative_no (int): The derivative number
+
+        Returns:
+            bool: True if the derivative number can be calculated
+                on this component. False otherwise.
+    """
+    if component.shape[-1] <= derivative_no:
+        return False
+    return True
+
+
 class Barrel:
     """This class is used to instantiate components computed in the surfboard package.
     It helps us compute statistics on these components.
@@ -16,7 +35,7 @@ class Barrel:
         """Instantiate a barrel with a component. Note that we require the component to be
         an np array. The first dimension represents the number of output features.
         and the second dimension represents time.
-        
+
         Args:
             component (np.array, [n_feats, T]):
         """
@@ -108,8 +127,11 @@ class Barrel:
             np.array, [n_feats, ]: The mean of the first delta coefficient
              of each individual dimension in self.component
         """
-        delta = self.get_first_derivative()
-        return np.mean(delta, -1)
+
+        if check_component_for_derivative(self.component, 1):
+            delta = self.get_first_derivative()
+            return np.mean(delta, -1)
+        return np.array(self.component.shape[0] * [float('nan')])
 
     def second_derivative_mean(self):
         """Compute the mean of the second empirical derivative (2nd delta coefficient)
@@ -119,8 +141,10 @@ class Barrel:
             np.array, [n_feats, ]: The mean of the second delta coefficient
              of each individual dimension in self.component
         """
-        delta2 = self.get_second_derivative()
-        return np.mean(delta2, -1)
+        if check_component_for_derivative(self.component, 2):
+            delta2 = self.get_second_derivative()
+            return np.mean(delta2, -1)
+        return np.array(self.component.shape[0] * [float('nan')])
 
     def std(self):
         """Compute the standard deviation of self.component on the last dimension
@@ -140,8 +164,10 @@ class Barrel:
             np.array, [n_feats, ]: The std of the first delta coefficient
              of each individual dimension in self.component
         """
-        delta = self.get_first_derivative()
-        return np.std(delta, -1)
+        if check_component_for_derivative(self.component, 1):
+            delta = self.get_first_derivative()
+            return np.std(delta, -1)
+        return np.array(self.component.shape[0] * [float('nan')])
 
     def second_derivative_std(self):
         """Compute the std of the second empirical derivative (2nd delta coefficient)
@@ -151,8 +177,10 @@ class Barrel:
             np.array, [n_feats, ]: The std of the second delta coefficient
              of each individual dimension in self.component
         """
-        delta2 = self.get_second_derivative()
-        return np.std(delta2, -1)
+        if check_component_for_derivative(self.component, 2):
+            delta2 = self.get_second_derivative()
+            return np.std(delta2, -1)
+        return np.array(self.component.shape[0] * [float('nan')])
 
     def skewness(self):
         """Compute the skewness of self.component on the last dimension (time)
@@ -171,8 +199,10 @@ class Barrel:
             np.array, [n_feats, ]: The skewness of the first delta coefficient
              of each individual dimension in self.component
         """
-        delta = self.get_first_derivative()
-        return skew(delta, -1)
+        if check_component_for_derivative(self.component, 1):
+            delta = self.get_first_derivative()
+            return skew(delta, -1)
+        return np.array(self.component.shape[0] * [float('nan')])
 
     def second_derivative_skewness(self):
         """Compute the skewness of the second empirical derivative (2nd delta coefficient)
@@ -182,8 +212,10 @@ class Barrel:
             np.array, [n_feats, ]: The skewness of the second delta coefficient
              of each individual dimension in self.component
         """
-        delta2 = self.get_second_derivative()
-        return skew(delta2, -1)
+        if check_component_for_derivative(self.component, 2):
+            delta2 = self.get_second_derivative()
+            return skew(delta2, -1)
+        return np.array(self.component.shape[0] * [float('nan')])
 
     def kurtosis(self):
         """Compute the kurtosis of self.component on the last dimension (time)
@@ -202,8 +234,10 @@ class Barrel:
             np.array, [n_feats, ]: The kurtosis of the first delta coefficient
              of each individual dimension in self.component
         """
-        delta = self.get_first_derivative()
-        return kurtosis(delta, -1)
+        if check_component_for_derivative(self.component, 1):
+            delta = self.get_first_derivative()
+            return kurtosis(delta, -1)
+        return np.array(self.component.shape[0] * [float('nan')])
 
     def second_derivative_kurtosis(self):
         """Compute the kurtosis of the second empirical derivative (2nd delta coefficient)
@@ -213,8 +247,10 @@ class Barrel:
             np.array, [n_feats, ]: The kurtosis of the second delta coefficient
              of each individual dimension in self.component
         """
-        delta2 = self.get_second_derivative()
-        return kurtosis(delta2, -1)
+        if check_component_for_derivative(self.component, 2):
+            delta2 = self.get_second_derivative()
+            return kurtosis(delta2, -1)
+        return np.array(self.component.shape[0] * [float('nan')])
 
     def first_quartile(self):
         """Compute the first quartile on the last dimension (time).
