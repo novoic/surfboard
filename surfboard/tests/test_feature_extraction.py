@@ -1,31 +1,13 @@
 import os
-import pytest
-import yaml
 
 import pandas as pd
-import numpy as np
-
-from surfboard import sound
-from surfboard.utils import example_audio_file
+import yaml
 
 from surfboard.feature_extraction import (
     extract_features,
     extract_features_from_paths
 )
-
-
-@pytest.fixture
-def flat_waveform():
-    wave = np.ones((24000,))
-    return sound.Waveform(signal=wave, sample_rate=24000)
-
-
-@pytest.fixture
-def waveform():
-    filename = example_audio_file('a')
-    return sound.Waveform(
-        path=filename, sample_rate=24000
-    )
+from surfboard.utils import example_audio_file
 
 
 def test_extract_features(waveform, flat_waveform):
@@ -56,7 +38,6 @@ def test_extract_features(waveform, flat_waveform):
     # Check that not all values are NaNs.
     assert not output_without_statistics.isnull().values.all()
 
-    
     output_with_statistics = extract_features(
         [waveform, flat_waveform], components_list, statistics_list
     )
@@ -79,7 +60,7 @@ def test_extract_features_from_paths():
     statistics_list = list(config['statistics'])
 
     output_without_statistics = extract_features_from_paths(
-        [example_audio_file('e')], components_list 
+        [example_audio_file('e')], components_list
     )
     # Check correct return type.
     assert isinstance(
@@ -89,7 +70,7 @@ def test_extract_features_from_paths():
     assert not output_without_statistics.isnull().values.all()
 
     output_with_statistics = extract_features_from_paths(
-        [example_audio_file('o')], components_list , statistics_list
+        [example_audio_file('o')], components_list, statistics_list
     )
     # Check correct return type.
     assert isinstance(output_with_statistics, pd.DataFrame)
