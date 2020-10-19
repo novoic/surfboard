@@ -61,9 +61,9 @@ def numseconds_to_numsamples(numseconds, sample_rate):
     Return:
         int: closest power of 2 to int(numseconds * sample_rate)
     """
-    candidate = int(numseconds * sample_rate)
+    candidate = numseconds * sample_rate
     log2 = np.log2(candidate)
-    out_value = int(2 ** np.round(log2))
+    out_value = round(2 ** np.round(log2))
 
     assert out_value != 0, "The inputs given gave an output value of 0. This is not acceptable."
 
