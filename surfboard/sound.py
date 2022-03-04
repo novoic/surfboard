@@ -154,7 +154,7 @@ class Waveform:
         hop_length = numseconds_to_numsamples(hop_length_seconds, self.sample_rate)
 
         melspec = librosa.feature.melspectrogram(
-            self.waveform, sr=self.sample_rate, n_mels=n_mels, n_fft=n_fft, hop_length=hop_length,
+            y=self.waveform, sr=self.sample_rate, n_mels=n_mels, n_fft=n_fft, hop_length=hop_length,
         )
         return librosa.power_to_db(melspec, ref=np.max)
 
@@ -171,7 +171,7 @@ class Waveform:
         n_fft = numseconds_to_numsamples(n_fft_seconds, self.sample_rate)
         hop_length = numseconds_to_numsamples(hop_length_seconds, self.sample_rate)
 
-        mag_spectrum, _ = librosa.core.spectrum._spectrogram(self.waveform, n_fft=n_fft, hop_length=hop_length)
+        mag_spectrum, _ = librosa.core.spectrum._spectrogram(y=self.waveform, n_fft=n_fft, hop_length=hop_length)
         return mag_spectrum
 
     def bark_spectrogram(self, n_fft_seconds=0.04, hop_length_seconds=0.01):

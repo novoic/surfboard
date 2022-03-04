@@ -302,7 +302,7 @@ def get_bark_spectrogram(waveform, sample_rate, n_fft_seconds, hop_length_second
     hop_length = numseconds_to_numsamples(hop_length_seconds, sample_rate)
 
     # [n_frequency_bins, t]
-    spectrogram, _ = librosa.core.spectrum._spectrogram(waveform, n_fft=n_fft, hop_length=hop_length)
+    spectrogram, _ = librosa.core.spectrum._spectrogram(y=waveform, n_fft=n_fft, hop_length=hop_length)
     frequencies = librosa.core.fft_frequencies(sr=sample_rate, n_fft=n_fft)
 
     assert spectrogram.shape[0] == frequencies.shape[0], "Different number of frequencies..."
